@@ -1,8 +1,10 @@
 import discord
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
-
-client = discord.client()
+TOKEN = os.getenv('TOKEN')
+client = discord.Client()
 
 @client.event
 async def on_ready():
@@ -16,4 +18,4 @@ async def on_message(message):
     if message.content.startswith('!give'):
         await message.channel.send("Random Fact")
 
-client.run(os.getenv('DISCORD_TOKEN'))
+client.run(TOKEN)
