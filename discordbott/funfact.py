@@ -15,7 +15,13 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('!give'):
-        await message.channel.send("Random Fact")
+    if message.content.startswith('!taco'):
+        await message.channel.send("Get Shit On")
+
+    if message.content.startswith('!admire'):
+        await message.channel.send("huh")
+
+    if message.content.startswith('!roddy'):
+        await message.channel.send("Where's Bolt?")
 
 client.run(TOKEN)
