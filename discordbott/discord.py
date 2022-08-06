@@ -1,4 +1,6 @@
 import discord
+import os
+
 
 client = discord.client()
 
@@ -11,4 +13,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-        
+    if message.content.startswith('!give'):
+        await message.channel.send("Random Fact")
+
+client.run(os.getenv('DISCORD_TOKEN'))
