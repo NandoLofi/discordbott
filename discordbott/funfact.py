@@ -2,9 +2,21 @@ import discord
 import os
 from dotenv import load_dotenv
 load_dotenv()
+import requests
+import json
+limit = 1
 
 TOKEN = os.getenv('TOKEN')
 client = discord.Client()
+URL = "https://api.api-ninjas.com/v1/facts"
+API_KEY = os.getenv('API_KEY')
+
+def get_ff():
+    response = requests.get(URL, headers={'X-Api-Key': API_KEY})
+    json_data = json.loads(response.txt)
+    fact = json_data
+    return(fact)
+
 
 @client.event
 async def on_ready():
@@ -15,13 +27,13 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('!taco'):
-        await message.channel.send("Get Shit On")
+    if message.content.startswith('!ready'):
+        await message.channel.send("Ready to provide some fun facts!")
 
-    if message.content.startswith('!admire'):
-        await message.channel.send("huh")
+    if message.content.startswith('!fact'):
+        fact = get_ff
+        await message.channel.send(fact)
+    
 
-    if message.content.startswith('!roddy'):
-        await message.channel.send("Where's Bolt?")
 
 client.run(TOKEN)
