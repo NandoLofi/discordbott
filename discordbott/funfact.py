@@ -8,14 +8,15 @@ limit = 1
 
 TOKEN = os.getenv('TOKEN')
 client = discord.Client()
-URL = "https://api.api-ninjas.com/v1/facts"
+URL = "https://zenquotes.io/api/random/"
 API_KEY = os.getenv('API_KEY')
 
 def get_ff():
-    response = requests.get(URL, headers={'X-Api-Key': API_KEY})
-    json_data = json.loads(response.txt)
-    fact = json_data
-    return(fact)
+    response = requests.get(URL)
+    json_data = json.loads(response.text)
+    quote = json_data[0]['q']
+    return(quote)
+    
 
 
 @client.event
@@ -30,9 +31,9 @@ async def on_message(message):
     if message.content.startswith('!ready'):
         await message.channel.send("Ready to provide some fun facts!")
 
-    if message.content.startswith('!fact'):
-        fact = get_ff
-        await message.channel.send(fact)
+    if message.content.startswith('!quote'):
+        quote = get_ff()
+        await message.channel.send(quote)
     
 
 
