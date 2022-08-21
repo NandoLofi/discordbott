@@ -9,7 +9,7 @@ import { getProducts as listProducts} from "../components/redux/actions/productA
 
 export default function HomeScreen() {
   const dispatch = useDispatch();
-  const getProducts = useSelector((state) => state.reducer.getProducts )
+  const getProducts = useSelector((state) => state.reducer.getProducts.products.data )
   const products  = getProducts
 
   useEffect(()=> {
@@ -17,18 +17,19 @@ export default function HomeScreen() {
 
   }, [dispatch])
 
-
+  console.log(products)
   return (
     <div className='homescreen'>
         <h2 className='homescreen__title'>Latest Products</h2>
         <div className='homescreen__products'>
-        {products.map((product)=> 
-        <Product key={product._id } productId={product._id} 
-        name={product.name} price={product.price} description={product.description}
-        imageUrl={product.imageUrl}
+        {getProducts.map((products)=> 
+        <Product key={products._id } productId={products._id} 
+        name={products.name} price={products.price} description={products.description}
+        imageUrl={products.imageUrl}
         />
         )}
         </div>
     </div>
   )
 }
+

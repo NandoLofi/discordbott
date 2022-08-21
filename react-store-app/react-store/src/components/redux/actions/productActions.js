@@ -4,7 +4,7 @@ import axios from "axios"
 export const getProducts = ()=> async (dispatch) =>{
     try {
         dispatch({type:actionTypes.GET_PRODUCTS_REQUEST});
-        const { data } = await axios.get('https://lofi-store.herokuapp.com/products')
+        const  data   = await axios.get('https://lofi-store.herokuapp.com/products')
         dispatch({
             type: actionTypes.GET_PRODUCTS_SUCCESS,
             payload: data
