@@ -2,17 +2,17 @@ import React from 'react'
 import "./Product.css"
 import { Link } from 'react-router-dom'
 
-export default function Product() {
+export default function Product(imageUrl, name, price, description, productId) {
   return (
     <div className='product'>
-        <img src='https://cdn.shopify.com/s/files/1/0588/8075/3851/products/black.2.png?v=1637980017"' alt="product 1"/>
+        <img src={imageUrl} alt={name}/>
         <div className="product__info">
-            <p className='info__name'>Product 1</p>
+            <p className='info__name'>{name}</p>
             <p className='info__description'>
-            this that and the other of others within?
+            {description}
             </p>
-            <p className='info__price'>$500</p>
-            <Link to={`/product/${111}`}className='info__button'>
+            <p className='info__price'>{price}</p>
+            <Link to={`/product/${productId}`}className='info__button'>
                 View
             </Link>
         </div>
