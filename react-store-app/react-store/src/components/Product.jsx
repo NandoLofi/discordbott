@@ -12,7 +12,7 @@ export default function Product(imageUrl, name, price, description, productId) {
             {description}
             </p>
             <p className='info__price'>{price}</p>
-            <Link to={`/product/${productId}`}className='info__button'>
+            <Link to={`/product/${productId}`} className='info__button'>
                 View
             </Link>
         </div>
