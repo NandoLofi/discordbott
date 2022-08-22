@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-const createSlice = createSlice()
 import axios from "axios";
-import { act } from "react-dom/test-utils";
 
 const initialState = {
     loading: false,
@@ -12,12 +10,12 @@ const initialState = {
 
 export const fetchProducts = createAsyncThunk("productsSlice/fetchProducts", ()=>{
     axios.get("https://lofi-store.herokuapp.com/products")
-    .then(response => response)
+    .then((response) => response.data)
 
 })
 
-const productsSlice = createSlice({
-    name: productData,
+export const productsSlice = createSlice({
+    name: 'productData',
     initialState: initialState,
     extraReducers: builder=> {
         builder.addCase(fetchProducts.pending, state => {
