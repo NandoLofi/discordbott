@@ -4,6 +4,7 @@ import Product from '../components/Product'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import { getProducts as listProducts} from "../components/redux/actions/productActions"
+import { fetchProducts } from '../components/redux/data/productsSilce'
 
 
 

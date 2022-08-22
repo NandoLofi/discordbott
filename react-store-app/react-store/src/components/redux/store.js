@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { product , productDetail } from './products/productSlice'
 import { cart } from './products/cartSlice'
+import * as productReducers from './data/productsSilce'
 
 
 
@@ -9,7 +10,8 @@ import { cart } from './products/cartSlice'
     reducer: { 
        product: product,
        productDetail: productDetail,
-       cart: cart
+       cart: cart,
+       productData: productReducers
     }
  });
 
