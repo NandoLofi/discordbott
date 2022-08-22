@@ -1,10 +1,10 @@
 import * as actionTypes from "../constants/productConstants"
 
 
-export const getProductReducer = (state= {products: []} , action )=> {
+export const getProductReducer = (state = { products: [] } , action ) => {
     switch(action.type){
         case actionTypes.GET_PRODUCTS_REQUEST:
-            return{
+            return {
                 loading: true,
                 products: []
             }
